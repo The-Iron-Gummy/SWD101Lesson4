@@ -1,0 +1,54 @@
+------------------------------------------------------------------------------------------------------//Lesson 4//
+------------------------------------------------------------------------------------------------//Main Hands-On Project//
+function phoneNumberFormat(phoneNumber)
+{
+    phoneNumber = document.getElementById("phNumber").value;
+    console.log(phoneNumber);
+    let phoneRegex = /^\(\d\d\d\) \d\d\d-\d\d\d\d$/g;
+    let isMatch = phoneNumber.match(phoneRegex)
+        ? console.log("Valid number entered")
+        : console.log("Phone number entered is invalid");
+}
+phoneNumberFormat();
+----------------------------------------------------------------------------------------------------//Stretch Goal #1//
+let newNumber = 10;
+console.log("Checking if " + newNumber + " < 5");
+try {
+    if (newNumber < 5) throw true;
+    console.log("try \"if\" checked")
+}
+catch (err) {
+    console.log(err);
+    alert(err);
+}
+----------------------------------------------------------------------------------------------------//Stretch Goal #2//
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>RegEx</title>
+    <link rel="stylesheet" href="CSS1.css">
+    <meta charset="utf-8" />
+</head>
+<body> 
+    <h1>Please Enter Your First and Last Name</h1><br />
+    <form id="nameEnter">
+        <input id="firstName" placeholder="First Name"/><br />
+        <input id="lastName" placeholder="Last Name" />
+        <button id="submitNames">Submit</button>
+    </form>
+    <script src="JS1.js"></script>
+</body>
+</html>
+let btnSubmit = document.getElementById('submitNames');
+function getNames()
+{
+    let firstName = document.getElementById('firstName').value;
+    let lastName = document.getElementById('lastName').value;
+    console.log(firstName + " " + lastName);
+    let reFirst = /^[A-Z]\D{3,}/, reLast = /^[A-Z]\D{3,}/;
+    let namesValid = reFirst.exec(firstName)&& reLast.exec(lastName)
+        ? alert("Your name is valid")
+        : alert("Your name is not valid");
+}
+
+btnSubmit.addEventListener('click', getNames);
